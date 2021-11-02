@@ -1,0 +1,16 @@
+- name: set timezone to Asia/Tokyo
+  timezone:
+    name: Asia/Tokyo
+  become: yes
+  become_user: root
+
+
+- name: "requires install"
+  yum: "name={{ item }} state=present"
+  with_items:
+  - telnet
+  - nodejs
+  - tree
+  - "@Development Tools"
+  become: yes
+  become_user: root

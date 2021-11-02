@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+ ansible_amd64:
+  build:
+   context: .
+   dockerfile: Dockerfile_x86
+  platform: linux/amd64
+  tty: true
+  ports:
+    - "2222:22"
+  volumes:
+   - ./01_Apache_laravel:/home/ec2-user/ansible
+  working_dir: /home/ec2-user/ansible
+  privileged: true
+  restart: always
+  command: /sbin/init
