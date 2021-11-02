@@ -1,0 +1,13 @@
+---
+ # main.yml
+
+ - hosts: all
+   become: true
+   become_user: ec2-user
+   roles:
+     - default
+     - terraform
+   vars:
+    user_name: Git User
+    user_email: git@test.com
+    target_user: ec2-user
