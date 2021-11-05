@@ -28,3 +28,23 @@ ssh -i id_rsa ec2-user@localhost -p 2222
 ```sh
 docker exec -it ansible_playbooks_ansible_amd64_1 bash
 ```
+
+
+## その他
+
+### 停止
+```sh
+docker-compose stop
+```
+
+### 削除
+
+```sh
+docker-compose rm
+```
+
+### 全て削除　コンテナ　ネットワーク　イメージ
+
+```sh
+docker-compose down --rmi all --volumes
+```

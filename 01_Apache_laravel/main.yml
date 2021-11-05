@@ -3,10 +3,13 @@
 
  - hosts: all
    become: true
-   become_user: ec2-user
+   become_user: root
    roles:
      - default
-     - terraform
+#     - terraform
+     - php
+     - composer
+     - apache
    vars:
     user_name: Git User
     user_email: git@test.com

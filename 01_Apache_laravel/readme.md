@@ -12,7 +12,7 @@ gitに接続するためのユーザはデフォルトではテストユーザ�
 
 - DryRun
 ```shell
-ansible-playbook main.yml -i localhost, -c local --extra-vars "user_name=\"テスト\"" --extra-vars "user_email=test@exmple.com"  -C
+ansible-playbook main.yml -i localhost, -c local -C
  ```
 
  sudo でパスワードが必要な環境で実行する場合はこっち
@@ -21,7 +21,17 @@ ansible-playbook main.yml -i localhost, -c local --extra-vars "user_name=\"テ�
  ```
 
 
+
+
  - Apply
 ```shell
-ansible-playbook main.yml -i localhost, -c local --extra-vars "user_name=\"テスト\"" --extra-vars "user_email=test@exmple.com" -C
+ansible-playbook main.yml -i localhost, -c local
  ```
+
+
+---
+
+## Cloud9上で実行した場合
+
+https://5796f72561c649d1b341c8029378cfd9.vfs.cloud9.us-west-2.amazonaws.com/
+でApacheのページが表示される。 XXXXX.vfs.cloud9 で`XXXXX`の部分はユニーク
