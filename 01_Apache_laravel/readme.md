@@ -2,7 +2,10 @@
 
 ## インストールするされるもの
 
-- terraform・・・tfenvによって最新版をインストール
+- Apache 2.4
+- PHP 7.4
+- Composer 2.0
+
   - ※1
 セットアップ後 `/home/ec2-user/.ssh/id_rsa` にbitbukcetに登録している秘密鍵を設定してあげる必要がある。
 `.ssh/config`でHUB-SSHへの接続可（VPC　Peer）前提になっている。
@@ -33,5 +36,5 @@ ansible-playbook main.yml -i localhost, -c local
 
 ## Cloud9上で実行した場合
 
-https://5796f72561c649d1b341c8029378cfd9.vfs.cloud9.us-west-2.amazonaws.com/
-でApacheのページが表示される。 XXXXX.vfs.cloud9 で`XXXXX`の部分はユニーク
+https://XXXXXXXXX.vfs.cloud9.us-west-2.amazonaws.com/
+でApacheのページが表示される。 `XXXXX`の部分はユニーク
