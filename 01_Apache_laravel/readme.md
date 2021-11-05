@@ -38,3 +38,20 @@ ansible-playbook main.yml -i localhost, -c local
 
 https://XXXXXXXXX.vfs.cloud9.us-west-2.amazonaws.com/
 でApacheのページが表示される。 `XXXXX`の部分はユニーク
+
+
+## laravel
+
+- laravel インストール
+```sh
+cd /var/www/html/
+composer create-project laravel/laravel laratest
+```
+
+- 権限変更（apachユーザで書き込みできるようにするため
+```sh
+chown -R apache:apache /var/www/html/laratest
+```
+
+https://XXXXXXXXX.vfs.cloud9.us-west-2.amazonaws.com/laratest/public
+でApacheのページが表示される。 `XXXXX`の部分はユニーク
