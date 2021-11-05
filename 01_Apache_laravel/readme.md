@@ -1,14 +1,11 @@
-# 開発環境
+# Apache2.4 + PHP7.4 + laravel(composer 2.1)
 
 ## インストールするされるもの
 
 - Apache 2.4
 - PHP 7.4
-- Composer 2.0
+- Composer 2.1
 
-  - ※1
-セットアップ後 `/home/ec2-user/.ssh/id_rsa` にbitbukcetに登録している秘密鍵を設定してあげる必要がある。
-`.ssh/config`でHUB-SSHへの接続可（VPC　Peer）前提になっている。
 
 ## localhostで実行したい場合
 gitに接続するためのユーザはデフォルトではテストユーザの値が入っているため明示的に指定する。
