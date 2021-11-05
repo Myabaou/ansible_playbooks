@@ -8,7 +8,6 @@
 
 
 ## localhostで実行したい場合
-gitに接続するためのユーザはデフォルトではテストユーザの値が入っているため明示的に指定する。
 
 - DryRun
 ```shell
@@ -19,9 +18,6 @@ ansible-playbook main.yml -i localhost, -c local -C
  ```shell
  ansible-playbook main.yml -i localhost, -c local -C --ask-become-pass
  ```
-
-
-
 
  - Apply
 ```shell
