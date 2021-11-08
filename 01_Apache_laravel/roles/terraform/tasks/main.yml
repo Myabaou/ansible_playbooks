@@ -1,0 +1,17 @@
+- name: tfenv clone
+  ansible.builtin.git:
+    repo: https://github.com/tfutils/tfenv.git
+    dest: ~/.tfenv
+
+- name: bachrc modify tfenv
+  ansible.builtin.lineinfile:
+    path: "/home/{{ target_user }}/.bashrc"
+    line: "{{ item }}"
+  with_items:
+    - "export PATH=$HOME/.tfenv/bin:$PATH"
+
+- name: "terraform Install"
+  shell: /bin/bash -lc "{{ item }}"
+  with_items:
+    - "tfenv install latest"
+    - "tfenv use latest"
