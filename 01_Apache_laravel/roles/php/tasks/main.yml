@@ -17,6 +17,12 @@
     - php-xml
     - php-fpm
     - php-gd
+<<<<<<< HEAD
+=======
+    - php-pecl-apcu
+    - php-opcache
+    - php-process
+>>>>>>> origin/main
 
 - name: index php
   template:

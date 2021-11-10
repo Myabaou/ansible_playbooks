@@ -26,7 +26,11 @@ ssh -i id_rsa ec2-user@localhost -p 2222
 ```
 
 ```sh
+<<<<<<< HEAD
 docker exec -it ansible_playbooks_ansible_amd64_1 bash
+=======
+docker exec -it ansible_playbooks-ansible_amd64-1 bash
+>>>>>>> origin/main
 ```
 
 

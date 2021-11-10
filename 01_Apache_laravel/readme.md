@@ -37,13 +37,21 @@ https://XXXXXXXXX.vfs.cloud9.us-west-2.amazonaws.com/
 
 - laravel インストール
 ```sh
+<<<<<<< HEAD
+=======
+sudo chmod 777 /var/www/html/
+>>>>>>> origin/main
 cd /var/www/html/
 composer create-project laravel/laravel laratest
 ```
 
 - 権限変更（apachユーザで書き込みできるようにするため
 ```sh
+<<<<<<< HEAD
 chown -R apache:apache /var/www/html/laratest
+=======
+sudo chown -R apache:apache /var/www/html/laratest
+>>>>>>> origin/main
 ```
 
 https://XXXXXXXXX.vfs.cloud9.us-west-2.amazonaws.com/laratest/public
