@@ -1,4 +1,4 @@
-# Apache2.4 + PHP7.4 + laravel(composer 2.1)
+# Nginx + PHP8.0 + laravel(composer 2.1)
 
 ## インストールするされるもの
 
@@ -31,22 +31,22 @@ ansible-playbook main.yml -i localhost, -c local
 ## Cloud9上で実行した場合
 
 https://XXXXXXXXX.vfs.cloud9.us-west-2.amazonaws.com/
-でApacheのページが表示される。 `XXXXX`の部分はユニーク
+でNginxのページが表示される。 `XXXXX`の部分はユニーク
 
 
 ## laravel
 
 - laravel インストール
 ```sh
-sudo chmod 777 /var/www/html/
-cd /var/www/html/
+sudo chmod 777 /usr/share/nginx/html
+cd /usr/share/nginx/html
 composer create-project laravel/laravel laratest
 ```
 
 - 権限変更（apachユーザで書き込みできるようにするため
 ```sh
-sudo chown -R apache:apache /var/www/html/laratest
+sudo chown -R nginx:nginx /usr/share/nginx/html/laratest
 ```
 
 https://XXXXXXXXX.vfs.cloud9.us-west-2.amazonaws.com/laratest/public
-でApacheのページが表示される。 `XXXXX`の部分はユニーク
+でLaravelのページが表示される。 `XXXXX`の部分はユニーク
