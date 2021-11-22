@@ -1,0 +1,21 @@
+- name: Enable to install NGINX.
+  shell: "amazon-linux-extras enable nginx1"
+  become: yes
+
+
+- name: Install NGINX.
+  yum: name=nginx
+
+- name: change NGINX config
+  template:
+    src: ../templates/nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+  notify:
+    - Restart nginx
+
+
+- name: nginx のサービス起動・自動起動設定
+  service:
+    name: nginx
+    state: started
+    enabled: yes

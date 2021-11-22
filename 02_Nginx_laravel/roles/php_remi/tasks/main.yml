@@ -1,0 +1,53 @@
+- name: install remi
+  yum:
+     name: "{{ item }}"
+     state: present
+  with_items:
+    - https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+- name: yum repo priority Modify
+  template:
+    src: "../templates/{{ item }}.j2"
+    dest: "/etc/yum.repos.d/{{ item }}"
+  with_items:
+    - remi.repo
+    - epel.repo
+
+- name: yum php80 install
+  yum:
+    name: "{{ item }}"
+    state: latest
+    enablerepo: remi
+  with_items:
+    - libzstd
+    - php80
+    - php80-php-common
+    - php80-php-devel
+    - php80-php-mysqlnd
+    - php80-php-mbstring
+    - php80-php-pecl-zip
+    - php80-php-pdo
+    - php80-php-xml
+    - php80-php-fpm
+    - php80-php-gd
+    - php80-php-pecl-apcu
+    - php80-php-opcache
+    - php80-php-process
+    - php80-php-pecl-redis5
+
+- name: index php
+  template:
+    src: ../templates/index.php.j2
+    dest: /usr/share/nginx/html/index.php
+
+- name: Create symbolic link
+  file:
+    src: /usr/bin/php80
+    dest: /usr/bin/php
+    state: link
+
+- name: php-fpm のサービス起動・自動起動設定
+  service:
+    name: php80-php-fpm
+    state: started
+    enabled: yes
