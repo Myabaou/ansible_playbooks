@@ -1,0 +1,36 @@
+- name: Enable to install PHP.
+  shell: "amazon-linux-extras enable php8.0"
+  changed_when: False
+
+- name: install remi epel
+  yum:
+     name: "{{ item }}"
+     state: present
+  with_items:
+    - https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+- name: yum php install
+  yum:
+    name: "{{ item }}"
+    state: latest
+    enablerepo: amzn2extra-php8.0
+  with_items:
+    - php
+    - php-devel
+    - php-mysqlnd
+    - php-mbstring
+    - php-pecl-zip
+    - php-pdo
+    - php-xml
+    - php-fpm
+    - php-gd
+    - php-common
+    - php-pecl-apcu
+#    - php-apcu
+    - php-opcache
+    - php-process
+
+- name: index php
+  template:
+    src: ../templates/index.php.j2
+    dest: /var/www/html/index.php
