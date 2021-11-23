@@ -8,11 +8,12 @@
 
 - name: change NGINX config
   template:
-    src: ../templates/nginx.conf.j2
-    dest: /etc/nginx/nginx.conf
+    src: "../templates/{{ item }}.j2"
+    dest: "/etc/nginx/default.d/{{ item }}"
   notify:
     - Restart nginx
-
+  with_items:
+    - php-fpm.conf
 
 - name: nginx のサービス起動・自動起動設定
   service:

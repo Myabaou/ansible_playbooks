@@ -1,0 +1,12 @@
+location / {
+root /usr/share/nginx/html; #上と同じにする
+index index.html index.htm;
+}
+
+location ~ \.php$ {
+fastcgi_pass 127.0.0.1:9000; # unix:/var/run/php-fpm/php-fpm.sock;
+fastcgi_index index.php;
+fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; # ←こうする
+include fastcgi_params;
+}
+

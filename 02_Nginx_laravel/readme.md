@@ -45,8 +45,9 @@ composer create-project laravel/laravel laratest
 
 - 権限変更（apachユーザで書き込みできるようにするため
 ```sh
-sudo chown -R nginx:nginx /usr/share/nginx/html/laratest
+sudo chown -R apache:apache /usr/share/nginx/html/laratest
 ```
 
-https://XXXXXXXXX.vfs.cloud9.us-west-2.amazonaws.com/laratest/public
+
+https://XXXXXXXXX.vfs.cloud9.us-west-2.amazonaws.com/laratest/public/index.php
 でLaravelのページが表示される。 `XXXXX`の部分はユニーク
