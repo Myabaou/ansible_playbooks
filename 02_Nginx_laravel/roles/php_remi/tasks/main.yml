@@ -46,6 +46,20 @@
     dest: /usr/bin/php
     state: link
 
+- name: Ensure the default apache user modify nginx
+  ansible.builtin.lineinfile:
+    path: /etc/opt/remi/php80/php-fpm.d/www.conf
+    state: present
+    backrefs: yes
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - regexp: '^user'
+      line: 'user = nginx'
+    - regexp: '^group'
+      line: 'group = nginx'
+
+
 - name: php-fpm のサービス起動・自動起動設定
   service:
     name: php80-php-fpm
