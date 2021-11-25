@@ -1,25 +1,31 @@
-- name: Enable to install PHP.
-  shell: "amazon-linux-extras enable php7.4"
+- name: Enable to install .
+  shell: "amazon-linux-extras enable php8.0"
   changed_when: False
 
 - name: yum php install
   yum:
     name: "{{ item }}"
     state: latest
-    enablerepo: amzn2extra-php7.4
+    enablerepo: amzn2extra-php8.0
   with_items:
     - php
     - php-devel
     - php-mysqlnd
     - php-mbstring
-    - php-pecl-zip
+#    - php-pecl-zip  # PHP8 amazon-linux-extrasだと失敗するためコメントアウト
     - php-pdo
     - php-xml
     - php-fpm
     - php-gd
-    - php-pecl-apcu
+#    - php-pecl-apcu　# PHP8 amazon-linux-extrasだと失敗するためコメントアウト
     - php-opcache
     - php-process
+
+- name: php-fpm のサービス起動・自動起動設定
+  service:
+    name: php-fpm
+    state: started
+    enabled: yes
 
 - name: index php
   template:
