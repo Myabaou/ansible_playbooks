@@ -11,11 +11,23 @@
     enabled: yes
 
 
-- name: change Apache config
-  template:
-    src: ../templates/httpd.conf.j2
-    dest: /etc/httpd/conf/httpd.conf
+#- name: change Apache config
+#  template:
+#    src: ../templates/httpd.conf.j2
+#    dest: /etc/httpd/conf/httpd.conf
+#  notify:
+#    - Restart apache
+
+
+
+- name: php valid
+  ansible.builtin.lineinfile:
+    dest: /etc/httpd/conf.d/php.conf
+    line: "{{ item }}"
+  with_items:
+    - '# php Install'
+    - 'AddHandler php-script .php'
+    - 'LoadModule php_module modules/libphp.so'
+    - 'DirectoryIndex index.php'
   notify:
     - Restart apache
-
-

@@ -21,6 +21,7 @@
     - php-opcache
     - php-process
 
+
 - name: php-fpm のサービス起動・自動起動設定
   service:
     name: php-fpm
