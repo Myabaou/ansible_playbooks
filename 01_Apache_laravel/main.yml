@@ -5,11 +5,11 @@
    become: true
    become_user: root
    roles:
-     - default
+    - default
 #     - terraform
-     - php
-     - composer
-     - apache
+    - php
+    - composer
+    - apache
    vars:
     user_name: Git User
     user_email: git@test.com
