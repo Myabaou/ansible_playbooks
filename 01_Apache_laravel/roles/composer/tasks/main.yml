@@ -10,7 +10,7 @@
         dest: /tmp/installer
 
     - name: install composer
-      shell: cat /tmp/installer | php -- --install-dir=/usr/local/bin
+      shell: export COMPOSER_HOME=/root && cat /tmp/installer | php -- --install-dir=/usr/local/bin
 
     - name: rename composer.phar to composer
       shell: mv /usr/local/bin/composer.phar /usr/local/bin/composer
