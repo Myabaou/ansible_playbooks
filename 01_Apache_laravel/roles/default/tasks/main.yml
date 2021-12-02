@@ -14,3 +14,12 @@
   - "@Development Tools"
   become: yes
   become_user: root
+
+
+- name: change Cron sysstat
+  template:
+    src: ../templates/sysstat.j2
+    dest: /etc/cron.d/sysstat
+  notify:
+    - Restart cron
+

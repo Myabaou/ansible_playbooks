@@ -15,6 +15,7 @@ RUN yum -y update && \
     openssh-clients \
     which \
     iproute \
+    sysstat \
     e2fsprogs && \
     # キャッシュを削除
     yum clean all && \
